@@ -44,10 +44,18 @@ class HistoryObserver
          * Bypass restoring event
          */
         if(array_key_exists('deleted_at', $changes)) return;
+        /**
+         * Get meta values that will be stored
+         */
+        $meta = $model->getModelMeta('updating');
+        /**
+         * Bypass updating event when meta is empty
+         */
+        if (!$meta) return;
 
         $model->morphMany(History::class, 'model')->create([
             'message' => trans('panoscape::history.updating', ['model' => static::getModelName($model), 'label' => $model->getModelLabel()]),
-            'meta' => $model->getModelMeta('updating'),
+            'meta' => $meta,
             'user_id' => static::getUserID(),
             'user_type' => static::getUserType(),
             'performed_at' => time(),
@@ -108,7 +116,7 @@ class HistoryObserver
 
     public static function getUserType()
     {
-        return static::getAuth()->check() ? get_class(static::getAuth()->user()) : null;
+        return static::getAuth()->check() ?  static::getAuth()->user()->getMorphClass() : null;
     }
 
     public static function filter($action)
@@ -118,7 +126,7 @@ class HistoryObserver
                 return false;
             }
         }
-        elseif(in_array(get_class(static::getAuth()->user()), config('history.user_blacklist'))) {
+        elseif(in_array( static::getAuth()->user()->getMorphClass(), config('history.user_blacklist'))) {
             return false;
         }
 
