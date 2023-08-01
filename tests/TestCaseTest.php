@@ -33,7 +33,7 @@ class TestCaseTest extends TestCase
         $app['config']->set('history.console_enabled', true);
         $app['config']->set('history.test_enabled', true);
         $app['config']->set('history.attributes_blacklist', [
-            User::class => [
+            (new User)->getMorphClass() => [
                 'password'
             ]
         ]);
@@ -102,7 +102,7 @@ class TestCaseTest extends TestCase
         $history = History::first();
         $article = Article::first();
         $this->assertNotNull($history);
-        $this->assertEquals(Article::class, $history->model_type);
+        $this->assertEquals((new Article())->getMorphClass(), $history->model_type);
         $this->assertEquals($article->id, $history->model_id);
         $this->assertEquals('Created Article ' . $content['title'], $history->message);
         $this->assertTrue($history->performed_at instanceof \Illuminate\Support\Carbon);

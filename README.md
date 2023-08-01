@@ -258,7 +258,7 @@ You may set whitelist and blacklist in config file. Please follow the descriptio
 | Attributes blacklist
 |--------------------------------------------------------------
 | 
-| Please add the whole class names. Example: \App\User:class
+| Please add the whole class names. Example: \App\new \App\User()->getMorphClass()
 | For each model, attributes in its respect array will NOT be recorded into meta when performing update operation.
 |
 */
@@ -274,7 +274,7 @@ You may set whitelist and blacklist in config file. Please follow the descriptio
 |--------------------------------------------------------------
 |
 | Operations performed by users in this array will NOT be recorded.
-| Please add the whole class names. Example: \App\User:class
+| Please add the whole class names. Example: \App\new \App\User()->getMorphClass()
 | Use 'nobody' to bypass unauthenticated operations
 |
 */

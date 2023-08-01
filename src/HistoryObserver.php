@@ -116,7 +116,7 @@ class HistoryObserver
 
     public static function getUserType()
     {
-        return static::getAuth()->check() ? get_class(static::getAuth()->user()) : null;
+        return static::getAuth()->check() ?  static::getAuth()->user()->getMorphClass() : null;
     }
 
     public static function filter($action)
@@ -126,7 +126,7 @@ class HistoryObserver
                 return false;
             }
         }
-        elseif(in_array(get_class(static::getAuth()->user()), config('history.user_blacklist'))) {
+        elseif(in_array( static::getAuth()->user()->getMorphClass(), config('history.user_blacklist'))) {
             return false;
         }
 

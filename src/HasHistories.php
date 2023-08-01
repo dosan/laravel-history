@@ -70,7 +70,7 @@ trait HasHistories
     public static function isIgnored($model, $key)
     {
         $blacklist = config('history.attributes_blacklist');
-        $name = get_class($model);
+        $name = $model->getMorphClass();
         $array = isset($blacklist[$name])? $blacklist[$name]: null;
         return !empty($array) && in_array($key, $array);
     }
