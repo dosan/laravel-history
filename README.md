@@ -1,11 +1,3 @@
-<p align="center">
-<a href="https://github.com/seancheung/history/actions"><img src="https://github.com/seancheung/history/workflows/Test/badge.svg" alt="Test Status"></a>
-<a href='https://coveralls.io/github/seancheung/history?branch=master'><img src='https://coveralls.io/repos/github/seancheung/history/badge.svg?branch=master' alt='Coverage Status' /></a>
-<a href="https://packagist.org/packages/panoscape/history"><img src="https://poser.pugx.org/panoscape/history/downloads" alt="Total Downloads"></a>
-<a href="https://packagist.org/packages/panoscape/history"><img src="https://poser.pugx.org/panoscape/history/v" alt="Latest Stable Version"></a>
-<a href="https://packagist.org/packages/panoscape/history"><img src="https://poser.pugx.org/panoscape/history/license" alt="License"></a>
-</p>
-
 # History
 
 Eloquent model history tracking for Laravel (NOW WITH AUTOLOAD!)
@@ -17,13 +9,13 @@ Eloquent model history tracking for Laravel (NOW WITH AUTOLOAD!)
 Laravel 6.x and above
 
 ```shell
-composer require panoscape/history
+composer require dosan/laravel-history
 ```
 
 Laravel 5.6.x
 
 ```shell
-composer require "panoscape/history:^1.0"
+composer require "dosan/laravel-history:^1.0"
 ```
 
 ### Service provider and alias
