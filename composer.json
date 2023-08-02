@@ -1,5 +1,5 @@
 {
-    "name": "panoscape/history",
+    "name": "dosan/laravel-history",
     "description": "Eloquent model history tracking for Laravel",
     "keywords": ["laravel", "log", "history", "tracking", "eloquent", "model"],
     "homepage": "https://github.com/dosan/laravel-history",
